@@ -20,7 +20,7 @@ folder = 'new_folder'
 #     assert os.path.exists(folder), 'folder not exist'
 
 
-@pytest.fixture()
+@pytest.fixture(scope='session')
 def get_rand_num():
     num = random.randint(1, 100)
     print(num)
@@ -35,7 +35,7 @@ def test_rand_number_2(get_rand_num):
     assert 0 < get_rand_num <= 100
 
 
-class RandNumber:
+class TestRandNumber:
     def test_rand_number_2(self, get_rand_num):
         assert 0 < get_rand_num <= 100
 
